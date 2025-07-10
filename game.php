@@ -14,7 +14,7 @@ if (!isset($_SESSION['used'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeopardy Game Board</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="jstyles.css">
 </head>
 <body>
     <h1>Jeopardy Game Board</h1>
@@ -32,7 +32,7 @@ if (!isset($_SESSION['used'])) {
                     if (in_array($key, $_SESSION['used'])) {
                         echo '<td style="background-color: gray;">Used</td>';
                     } else {
-                        echo '<td><a class="button" href="question.php?category=' . urlencode($category) . '&points=' . $value . '">$' . $value . '</a></td>';
+                        echo '<td><a href="question.php?category=' . urlencode($category) . '&points=' . $value . '">$' . $value . '</a></td>';
                     }
                 } ?>
             </tr>

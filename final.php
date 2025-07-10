@@ -11,7 +11,7 @@ session_destroy();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Final Score</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="jstyles.css">
 </head>
 <body>
     <h1>Game Over!</h1>

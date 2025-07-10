@@ -23,3 +23,72 @@ body {
 .button:hover {
     background-color: #ffdb4d;
 }
+
+h1, h2 {
+    margin-top: 30px;
+}
+
+/* Jeopardy-style board */
+table {
+    border-collapse: collapse;
+    margin: 30px auto;
+    width: 90%;
+    max-width: 900px;
+    table-layout: fixed;
+}
+
+table th, table td {
+    border: 2px solid #ffffff;
+    height: 100px;
+    width: 20%; /* 5 categories = 20% each */
+    font-size: 1.5em;
+    color: white;
+    background-color: #000080;
+    text-transform: uppercase;
+    vertical-align: middle;
+    text-align: center;
+}
+
+table th {
+    background-color: #0000cd;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+table td a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+table td.used {
+    table td.used {
+    background-color: #444;
+    color: #999;
+    font-style: italic;
+    pointer-events: none;
+}
+
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 1em;
+    width: 60%;
+    max-width: 400px;
+}
+
+table td a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 100px; /* vertical centering */
+}
+
+table td a:hover {
+    background-color: #1a1aff;
+    box-shadow: 0 0 10px #fff, 0 0 15px #1a1aff;
+    transition: all 0.3s ease;
+}
