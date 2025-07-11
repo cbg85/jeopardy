@@ -22,6 +22,7 @@ $_SESSION['current'] = ['category' => $category, 'points' => $points];
     <p><?php echo $question; ?></p>
 
     <form action="answer.php" method="post">
+        <label><?php echo ($_SESSION['turn'] == 1) ? $_SESSION['player1'] : $_SESSION['player2']; ?>'s Answer:</label><br><br>
         <input type="text" name="answer" required>
         <br><br>
         <button type="submit" class="button">Submit Answer</button>

@@ -9,7 +9,11 @@
 </head>
 <body>
     <h1>Welcome to Jeopardy</h1>
-    <a href="game.php" class="button">Start Game</a>
+    <form action="game.php" method="post">
+        <label>Player 1 Name: <input type="text" name="player1" required></label><br><br>
+        <label>Player 2 Name: <input type="text" name="player2" required></label><br><br>
+        <button type="submit" class="button">Start Game</button>
+    </form>
     <a href="instructions.html" class="button">View Instructions</a>
 </body>
 </html>

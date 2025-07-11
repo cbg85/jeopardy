@@ -2,10 +2,22 @@
 <?php
 session_start();
 include 'questions.php';
-if (!isset($_SESSION['used'])) {
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $_SESSION['player1'] = $_POST['player1'];
+    $_SESSION['player2'] = $_POST['player2'];
+    $_SESSION['score1'] = 0;
+    $_SESSION['score2'] = 0;
+    $_SESSION['turn'] = 1; // Player 1 starts
     $_SESSION['used'] = [];
-    $_SESSION['score'] = 0;
 }
+
+$player1 = $_SESSION['player1'] ?? 'Player 1';
+$player2 = $_SESSION['player2'] ?? 'Player 2';
+$score1 = $_SESSION['score1'] ?? 0;
+$score2 = $_SESSION['score2'] ?? 0;
+$turn = $_SESSION['turn'] ?? 1;
+$currentPlayer = ($turn == 1) ? $player1 : $player2;
 ?>
 
 <!DOCTYPE html>
@@ -18,9 +30,10 @@ if (!isset($_SESSION['used'])) {
 </head>
 <body>
     <h1>Jeopardy Game Board</h1>
-    <h2>Score: <?php echo $_SESSION['score']; ?> points</h2>
+    <h2><?php echo "$player1: $score1 pts | $player2: $score2 pts"; ?></h2>
+    <h3>Current Turn: <?php echo $currentPlayer; ?></h3>
 
-    <table align="center">
+    <table>
         <tr>
             <?php foreach ($questions as $category => $points) { echo "<th>$category</th>"; } ?>
         </tr>
@@ -30,7 +43,7 @@ if (!isset($_SESSION['used'])) {
                 <?php foreach ($questions as $category => $pointSet) {
                     $key = $category . '-' . $value;
                     if (in_array($key, $_SESSION['used'])) {
-                        echo '<td style="background-color: gray;">Used</td>';
+                        echo '<td class="used">Used</td>';
                     } else {
                         echo '<td><a href="question.php?category=' . urlencode($category) . '&points=' . $value . '">$' . $value . '</a></td>';
                     }
